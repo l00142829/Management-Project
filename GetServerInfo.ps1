@@ -1,5 +1,11 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
 
+$path = "C:\users\administrator\Tests\ServerVerify" 
+If(!(test-path $path))
+{
+New-Item -ItemType Directory -Force -Path $path
+}
+
 $ComputerSystemInfo = Get-CimInstance -ClassName Win32_ComputerSystem
 if($ComputerSystemInfo.model -match "Virtual" -or $ComputerSystemInfo.model -match "VMware") { $MachineType = "Virtual"} Else { $MachineType = "Physical"}
 
@@ -90,4 +96,4 @@ $DiskLayoutTable
 $RAIDLayoutTable
 "@
 
-$HTMLFile | out-file C:\Temp\ServerDoc.html
+$HTMLFile | out-file C:\users\administrator\Tests\ServerVerify\ServerDoc.html
