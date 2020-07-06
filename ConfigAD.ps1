@@ -1,4 +1,5 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
+
 Import-Module ActiveDirectory
 
 $Date = Get-Date -f yyyyMMddhhmm
@@ -25,8 +26,9 @@ New-ADOrganizationalUnit -Name "Employees" -Path "OU=$DN,$DomainDN"
 New-ADOrganizationalUnit -Name "Ex Employees" -Path "OU=Employees,OU=$DN,$DomainDN"
 
 
-New-ADGroup -Name "svc_$DN" -GroupCategory Security -GroupScope Global -Description "ALL service accounts" -path "OU=Domain Groups,OU=$DN,$DomainDN"
-New-ADGroup -Name "usr_$DN" -GroupCategory Security -GroupScope Global -Description "ALL user accounts" -path "OU=Domain Groups,OU=$DN,$DomainDN"
+
+New-ADGroup -Name "Employees_$DN" -GroupCategory Security -GroupScope Global -Description "ALL employee accounts" -path "OU=Employees,OU=$DN,$DomainDN"
+New-ADGroup -Name "Service Accounts_$DN" -GroupCategory Security -GroupScope Global -Description "ALL service accounts" -path "OU=Service Accounts,OU=$DN,$DomainDN"
 
 New-ADServiceAccount -Name "DC-SchTsk" -DNSHostName "DC-SchTsk.$env:USERDNSDOMAIN" -PrincipalsAllowedToRetrieveManagedPassword "Domain Controllers","Domain Admins"
 Install-ADServiceAccount -Identity "DC-SchTsk"
