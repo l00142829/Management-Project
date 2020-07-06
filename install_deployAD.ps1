@@ -6,8 +6,8 @@ $Param_Details = @{
     CreateDnsDelegation = $false
     DatabasePath = 'C:\Windows\NTDS'
     DomainMode = 'WinThreshold'
-    DomainName = 'Management-Project.local'
-    DomainNetbiosName = 'Management-DC01'
+    DomainName = 'FRANKIE.local'
+    DomainNetbiosName = 'FRANKIE'
     ForestMode = 'WinThreshold'
     InstallDns = $true
     LogPath = 'C:\Windows\NTDS'
@@ -20,9 +20,9 @@ $Param_Details = @{
 
 
 Get-NetAdapter
-New-NetIPAddress -InterfaceIndex 5 -IPAddress 192.168.227.160 -DefaultGateway 192.168.227.2 -PrefixLength 24
+New-NetIPAddress -InterfaceIndex 10 -IPAddress 192.168.243.10 -DefaultGateway 192.168.243.2 -PrefixLength 24
 
-Set-DNSClientServerAddress -InterfaceIndex 5 -ServerAddresses ('192.168.227.160','127.0.0.1')
+Set-DNSClientServerAddress -InterfaceIndex 10 -ServerAddresses ('192.168.243.10','127.0.0.1')
 
 Disable-NetAdapterBinding -Name 'Ethernet0' -ComponentID 'ms_tcpip6'
 
@@ -36,6 +36,7 @@ Import-Module DnsServer
 
 Install-ADDSForest @Param_Details        
 
+Rename-Computer -NewName "DC01"
 
 
 
