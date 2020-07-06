@@ -45,7 +45,7 @@ $NicConf = "<br/><table class=`"table table-bordered table-hover`" >" + $NicRawC
 
 
 $head = @"
-<Title>Server Log Report</Title>
+<Title>AD Verify Install</Title>
 <style>
 body { background-color:#E5E4E2;
       font-family:Monospace;
