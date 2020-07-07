@@ -90,10 +90,6 @@ $ApplicationsTable
 <h1>Installed Roles</h1> <br>
 $RolesTable
 <br>
-<h1>Physical Disk information</h1>
-$DiskLayoutTable
-<h1>RAID information</h1>
-$RAIDLayoutTable
 "@
 
 $HTMLFile | out-file C:\users\administrator\Tests\ServerVerify\ServerDoc.html
