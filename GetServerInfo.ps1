@@ -92,4 +92,4 @@ $RolesTable
 <br>
 "@
 
-$HTMLFile | out-file C:\users\administrator\Tests\ServerVerify\ServerDoc.html
+$HTMLFile | out-file C:\users\administrator\Tests\ServerVerify\VerifyServerInfo.html
