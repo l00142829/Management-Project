@@ -36,7 +36,7 @@ Import-Module DnsServer
 
 Install-ADDSForest @Param_Details        
 
-Rename-Computer -NewName "DC01"
+Rename-Computer -NewName "DC01" -force
 
 
 
