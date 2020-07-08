@@ -63,7 +63,7 @@ Foreach ($DC in $DomainControllers) {
 Describe "Active Directory" {
  
     It "Domain Admins should have 1 member" {
-        (Get-ADGroupMember -Identity "Domain Admins" | Measure-Object).Count | Should Be 5
+        (Get-ADGroupMember -Identity "Domain Admins" | Measure-Object).Count | Should Be 1
     }
     
     It "Enterprise Admins should have 1 member" {
