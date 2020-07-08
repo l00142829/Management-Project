@@ -1,4 +1,3 @@
-
  
 $myDomain = Get-ADDomain
 $DomainControllers = $myDomain.ReplicaDirectoryServers
