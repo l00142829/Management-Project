@@ -41,13 +41,13 @@ Test-ADServiceAccount -Identity "DC-SchTsk"
 
 
 New-ADFineGrainedPasswordPolicy -Precedence 1 -Name PSO_desNOTexp -DisplayName PSO_desNOTexp -Description "PSO for accounts whose password does NOT expire" -ReversibleEncryptionEnabled $false -ProtectedFromAccidentalDeletion $true
-Add-ADFineGrainedPasswordPolicySubject PSO_desNOTexp -Subjects "Employees_$DN"
+Add-ADFineGrainedPasswordPolicySubject PSO_desNOTexp -Subjects "Service Accounts_$DN"
 
 New-ADFineGrainedPasswordPolicy -Precedence 5 -Name PSO_IncSec -DisplayName PSO_IncSec -Description "PSO for accounts that require a more strict password" -ReversibleEncryptionEnabled $false -ProtectedFromAccidentalDeletion $true
-Add-ADFineGrainedPasswordPolicySubject PSO_IncSec -Subjects "Domain Admins"
+Add-ADFineGrainedPasswordPolicySubject PSO_IncSec -Subjects "Admin Users"
 
 New-ADFineGrainedPasswordPolicy -Precedence 10 -Name PSO_BasicSec -DisplayName PSO_BasicSec -Description "PSO for basic user accounts" -ReversibleEncryptionEnabled $false -ProtectedFromAccidentalDeletion $true
-Add-ADFineGrainedPasswordPolicySubject PSO_BasicSec -Subjects "Service Accounts_$DN"
+Add-ADFineGrainedPasswordPolicySubject PSO_BasicSec -Subjects "Employees_$DN"
 
 
 
